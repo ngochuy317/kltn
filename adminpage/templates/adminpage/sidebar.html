@@ -1,0 +1,45 @@
+<div class="sidebar">
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-item">
+            <a href="{% url 'adminpage:statistic' %}" class="sidebar-nav-link {% if route == 'statistics' %}active{% endif %}">
+                <div>
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <span>Thông Kê</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a href="{% url 'adminpage:usermanagement' %}" class="sidebar-nav-link {% if route == 'usermanagement' %}active{% endif %}">
+                <div>
+                    <i class="fa-solid fa-person"></i>
+                </div>
+                <span>Người Dùng</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a href="{% url 'adminpage:productmanagement' %}" class="sidebar-nav-link {% if route == 'productmanagement' %}active{% endif %}">
+                <div>
+                    <i class="fa-solid fa-list"></i>
+                </div>
+                <span>Sản Phẩm</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a href="{% url 'adminpage:ordermanagement' %}" class="sidebar-nav-link {% if route == 'ordermanagement' %}active{% endif %}">
+                <div>
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+                <span>Đơn Hàng</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a href="{% url 'adminpage:vouchermanagement' %}" class="sidebar-nav-link {% if route == 'vouchermanagement' %}active{% endif %}">
+                <div>
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <span>Khuyến Mãi</span>
+            </a>
+        </li>
+
+    </ul>
+</div>

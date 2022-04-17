@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'user/img/logo.png' %}" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'user/css/signin.css' %}" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{% static 'user/css/signup.css' %}" type="text/css" />
+</head>
+
+<body>
+    <div class="sign-in">
+        <div class="logo-signin">
+            <img src="{% static 'user/img/logo.png' %}" alt="logo" style="width: 75px; height: 75px;">
+            <h1>Đăng ký</h1>
+        </div>
+        <form id="signup" method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <div class="form-box">
+                <label class="signin-label">Tên đăng nhập</label>
+                <input type="text" class="input-name" name="username" required>
+                <label class="signin-email">Email
+                </label>
+                <input type="email" class="input-email" name="email" required>
+                <label class="signin-passwd">Nhập mật khẩu
+                </label>
+                <input type="password" class="input-passwd" name="pass1" required>
+                <label class="signin-re-passwd">Nhập lại mật khẩu
+                </label>
+                <input type="password" class="input-re-passwd" name="pass2" required>
+            </div>
+            <div class="checkbox-term">
+                <input type="checkbox" name="checkboxterm" class="term" required/>
+                <p style="display: inline-block; font-size: 12px;">Tôi đã đọc và đồng ý về các điều khoản</p>
+            </div>
+        </form>
+        {% if errors %}
+            {{ errors }}
+        {% endif %}
+        <button class="signup-submit button-send-email">
+            <a onclick="document.getElementById('signup').submit();">Đăng ký</a>
+        </button>
+    </div>
+    </form>
+</body>
+
+</html>

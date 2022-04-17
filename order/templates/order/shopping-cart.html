@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    {% include "base/head.html" %}
+</head>
+<body>
+    {% include "base/header.html" %}
+
+    <div class="wrapper-all">
+            <!-- header -->
+
+            <!-- title bar box -->
+
+            <div class="container">
+                <div class="box-order">
+                    <div class="checkbox-custom">
+                        <input type="checkbox"></input>
+                    </div>
+                    <div class="box-order-product-name">Sản phẩm</div>
+                    <div class="box-order-product-categories">Thể loại</div>
+                    <div class="box-order-price">Giá</div>
+                    <div class="box-order-quantity">Số lượng</div>
+                    <div class="box-order-total">Thành tiền</div>
+                    <div class="box-order-actions">Thao tác</div>
+                </div>
+            </div>
+            <!-- end title bar box -->
+
+            <!-- begin shop name -->
+
+            <div class="container">
+                <div class="shop-name-box">
+                    <div class="checkbox-custom">
+                        <input type="checkbox"></input>
+                    </div>
+                    <div class="shop-name-cart">LDStore</div>
+                </div>
+            </div>
+            <!-- end shop name -->
+
+            <!-- begin detail shopping cart -->
+            <div class="container">
+                <div class="shopping-cart-detail-box">
+                    <div class="product-shopping-cart-card">
+                        <div class="wrap-checkbox-img">
+                            <div class="checkbox-custom">
+                                <input type="checkbox"></input>
+                            </div>
+                            <div class="product-cart-img" style="background-image: url(./images/tri-tue-xuc-cam.png);">
+                            </div>
+                            <div class="product-cart-name"><a href="#">[SKU-01]trí tuệ xúc cảm</a></div>
+                        </div>
+                        <div class="product-cart-categories">tình cảm</div>
+                        <div class="product-cart-price">
+                            <div class="product-cart-old-price">60.000Đ</div>
+                            <div class="product-cart-old-new-price">55.000Đ</div>
+                        </div>
+                        <div class="product-cart-quantity">
+                            <div class="product-quantity-wrapper">
+                                <span class="product-quantity-btn-minus">
+                                    <i class="bx bx-minus"></i>
+                                </span>
+                                <input type="text" value="1" class="product-quantity"></input>
+                                <span class="product-quantity-btn-plus">
+                                    <i class="bx bx-plus"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product-cart-total">55.000Đ</div>
+                        <div class="product-cart-actions">Xóa</div>
+                    </div>
+                </div>
+            </div>
+            <!-- end detail shopping cart -->
+            <div class="container">
+                <div class="payment-cart">
+                    <div class="shop-name-box">
+                        <div class="checkbox-custom">
+                            <input type="checkbox"></input>
+                        </div>
+                        <div class="payment-quantity" style="font-weight: 500;">chọn tất cả(1)</div>
+                    </div>
+                    <div class="voucher">LDStore voucher</div>
+                    <div class="payment-total">Tổng thanh toán (1) sản phẩm:</div>
+                    <div class="payment-price">55.000Đ</div>
+                    <div class="buy-btn-cart">Mua hàng</div>
+                </div>
+
+            </div>
+            <!-- footer -->
+            <!-- end footer -->
+            <!-- line-between -->
+
+        </div>
+        
+<footer class="bg-second">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 col-md-6">
+                        <h3 class="footer-head">Sản phẩm</h3>
+                        <ul class="menu">
+                            <li><a href="#"><i class="fa-solid fa-book"></i>Tiểu thuyết</a></li>
+                            <li><a href="#"><i class="fa-solid fa-book"></i>Tâm lý</a></li>
+                            <li><a href="#"><i class="fa-solid fa-book"></i>Kinh dị</a></li>
+                            <li><a href="#"><i class="fa-solid fa-book"></i>Truyện tranh</a></li>
+                            <li><a href="#"><i class="fa-solid fa-book"></i>Tình cảm</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-md-6">
+                        <h3 class="footer-head">Dịch vụ</h3>
+                        <ul class="menu">
+                            <li><a href="#"><i class="fa-solid fa-ticket"></i>Khuyến mãi</a></li>
+                            <li><a href="#"><i class="fa-solid fa-truck-fast"></i>Chính sách vận chuyển</a></li>
+                            <li><a href="#"><i class="fa-solid fa-person"></i>Chính sách hỗ trợ khách hàng</a></li>
+                            <li><a href="#"><i class="fa-solid fa-lock"></i>Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-md-6">
+                        <h3 class="footer-head">Hỗ trợ</h3>
+                        <ul class="menu">
+                            <li><a href="#"><i class="fa-solid fa-phone"></i>02871059999</a></li>
+                            <li><a href="#"><i class="fa-solid fa-location-dot"></i>Cơ sở 1: 233A Phan Văn Trị, P.11, Q. Bình Thạnh, TP. HCM</a></li>
+                            <li><a href="#"><i class="fa-solid fa-location-dot"></i>Cơ sở 2: 45 Nguyễn Khắc Nhu, P. Cô Giang, Q.1, TP. HCM</a></li>
+                            <li><a href="#"><i class="fa-solid fa-location-dot"></i>Cơ sở 3: 69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, TP. HCM</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-3 col-md-6 col-sm-12">
+                        <div class="contact" style="transform: translateY(-3rem);">
+                            <img src="./images/logoVLU.png" alt="">
+                            <h3 class="contact-header">
+                                LDStore
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">Copyright LDStore since 2022</div>
+</footer>
+        <script src="./js/app.js"></script>
+        <script src="./js/product-detail.js"></script>
+    </body>

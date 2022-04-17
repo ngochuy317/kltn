@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    {% include "adminpage/head.html" %}
+</head>
+<body class="overlay-scrollbar">
+	<!-- navbar -->
+	<div class="navbar">
+		<!-- nav left -->
+		<ul class="navbar-nav">
+			
+			<li class="nav-item">
+				<img  src="{% static 'adminpage/img/logo.png' %}" alt="ATPro logo" class="logo logo-light">
+				<img  src="{% static 'adminpage/img/logo.png' %}" alt="ATPro logo" class="logo logo-dark">
+				<span style="font-size: 30px; font-weight: bold; transform: translateY(-20px); display: inline-block;">LDStore</span>
+				
+			</li>
+		</ul>
+		<!-- end nav left -->
+		<!-- form -->
+		<form class="navbar-search">
+			<input type="text" name="Search" class="navbar-search-input" placeholder="What you looking for...">
+			<i class="fas fa-search"></i>
+		</form>
+		<!-- end form -->
+		<!-- nav right -->
+		<ul class="navbar-nav nav-right">
+			<li class="nav-item mode">
+				<a class="nav-link" href="#" onclick="switchTheme()">
+					<i class="fas fa-moon dark-icon"></i>
+					<i class="fas fa-sun light-icon"></i>
+				</a>
+			</li>
+			<!--  -->
+			<li class="nav-item avt-wrapper">
+				<div class="avt dropdown">
+					<img src="assets/tuat.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+					<ul id="user-menu" class="dropdown-menu">
+						<li  class="dropdown-menu-item">
+							<a class="dropdown-menu-link">
+								<div>
+									<i class="fas fa-user-tie"></i>
+								</div>
+								<span>Profile</span>
+							</a>
+						</li>
+						
+						<li  class="dropdown-menu-item">
+							<a href="#" class="dropdown-menu-link">
+								<div>
+									<i class="fas fa-sign-out-alt"></i>
+								</div>
+								<span>Logout</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!-- end nav right -->
+	</div>
+	<!-- end navbar -->
+	<!-- sidebar -->
+    {% include "adminpage/sidebar.html" %}
+
+	<!-- end sidebar -->
+	<!-- main content -->
+	<div class="wrapper">
+		<div  class="row">
+			<div  class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-primary">
+					<p>
+						<i class="fa-solid fa-person"></i>
+					</p>
+					<h3>100+</h3>
+					<p>Người Dùng</p>
+				</div>
+			</div>
+			<div  class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-warning">
+					<p>
+						<i class="fa-solid fa-list"></i>
+					</p>
+					<h3>100+</h3>
+					<p>Sản Phẩm</p>
+				</div>
+			</div>
+			<div  class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-success">
+					<p>
+						<i class="fa-solid fa-basket-shopping"></i>
+					</p>
+					<h3>100+</h3>
+					<p>Đơn Hàng</p>
+				</div>
+			</div>
+			<div class="col-3 col-m-6 col-sm-6">
+				<div class="counter bg-danger">
+					<p>
+						<i class="fa-solid fa-ticket"></i>
+					</p>
+					<h3>100+</h3>
+					<p>Khuyến Mãi</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			
+			<div class="col-4 col-m-12 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3>
+							So Sánh Với Tháng Trước
+						</h3>
+						<i class="fas fa-ellipsis-h"></i>
+					</div>
+					<div class="card-content">
+						<div class="progress-wrapper">
+							<p>
+								Người Dùng
+								<span class="float-right">Tăng 50%</span>
+							</p>
+							<div class="progress">
+								<div class="bg-success" style="width: 50%"></div>
+							</div>
+						</div>
+						<div class="progress-wrapper">
+							<p>
+								Sản Phẩm
+								<span class="float-right">Tăng 60%</span>
+							</p>
+							<div class="progress">
+								<div class="bg-primary" style="width:60%"></div>
+							</div>
+						</div>
+						<div class="progress-wrapper">
+							<p>
+								Đơn Hàng
+								<span class="float-right">Tăng 40%</span>
+							</p>
+							<div class="progress">
+								<div class="bg-warning" style="width:40%"></div>
+							</div>
+						</div>
+						<div class="progress-wrapper">
+							<p>
+								Khuyến Mãi
+								<span class="float-right">Tăng 20%</span>
+							</p>
+							<div class="progress">
+								<div class="bg-danger" style="width:20%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-m-12 col-sm-12">
+				<div class="card">
+					<div class="card-header">
+						<h3>
+							Thống Kê Cả Năm
+						</h3>
+					</div>
+					<div class="card-content">
+						<canvas id="myChart"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end main content -->
+	<!-- import script -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<script src="{% static 'adminpage/js/index.js' %}"></script>
+	<!-- end import script -->
+</body>
+</html>

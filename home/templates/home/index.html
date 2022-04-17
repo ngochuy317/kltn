@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}   
+<html lang="en">
+
+    {% include "base/head.html" %}
+<body>
+
+    {% include "base/header.html" %}
+
+    <!-- hero section -->
+    <div class="hero">
+        <div class="slider">
+            <div class="container">
+                <!-- slide item -->
+                {% for product in slider_products %}
+                    <div class="slide active">
+                        <div class="info">
+                            <div class="info-content">
+                                <h3 class="top-down">
+                                    {{ product.category }}
+                                </h3>
+                                <h2 class="top-down trans-delay-0-2">
+                                    {{ product.name }}
+                                </h2>
+                                <p class="top-down trans-delay-0-4">
+                                    {{ product.description|truncatechars:400 }}
+                                </p>
+                                <div class="top-down trans-delay-0-6">
+                                    <a href="{% url 'product:productdetail' slug=product.slug %}">
+                                        <button class="btn-flat btn-hover">
+                                        Chi tiết
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img right-left">
+                            <img style="height: 100%;" src="{{ product.image.url }}" alt="">
+                        </div>
+                    </div>
+                {% endfor %}
+                <!-- end slide item -->
+                <!-- slide item -->
+                <!-- <div class="slide">
+                    <div class="info">
+                        <div class="info-content">
+                            <h3 class="top-down">
+                                Tâm lý
+                            </h3>
+                            <h2 class="top-down trans-delay-0-2">
+                                Đắc nhân tâm
+                            </h2>
+                            <p class="top-down trans-delay-0-4">
+                                Đắc nhân tâm – How to win friends and Influence People  của Dale Carnegie là quyển sách nổi tiếng nhất, bán chạy nhất và có tầm ảnh hưởng nhất của mọi thời đại. Tác phẩm đã được chuyển ngữ sang hầu hết các thứ tiếng trên thế giới và có mặt ở hàng trăm quốc gia. Quyển sách Đắc nhắn tâm là cuốn sách “đầu tiên và hay nhất mọi thời đại về nghệ thuật giao tiếp và ứng xử”, quyển sách đã từng mang đến thành công và hạnh phúc cho hàng triệu người trên khắp thế giới.
+                            </p>
+                            <div class="top-down trans-delay-0-6">
+                                <a href="product-detail.html">
+                                    <button class="btn-flat btn-hover">
+                                    Chi tiết
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img right-left">
+                        <img style="height: 100%;" src="./images/dacnhantam.jpg" alt="">
+                    </div>
+                </div> -->
+                <!-- end slide item -->
+                <!-- slide item -->
+                <!-- <div class="slide">
+                    <div class="info">
+                        <div class="info-content">
+                            <h3 class="top-down">
+                                Tình cảm
+                            </h3>
+                            <h2 class="top-down trans-delay-0-2">
+                                Trà hoa nữ
+                            </h2>
+                            <p class="top-down trans-delay-0-4">
+                                Trà hoa nữ là câu chuyện tình yêu giàu chất tình cảm lãng mạn, được khắc họa bằng nhiều yếu tố hiện thực, thấm đượm tính nhân đạo. Câu chuyện mà tác giả kể là câu chuyện tình yêu của nàng Marguerite Gautier và chàng luật sư gốc gác quý tộc Armand Duval. Nàng thông minh, xinh đẹp nhưng lại có cuộc đời phù phiếm như những đóa hoa sơn trà, đắm mình trong những cuộc vui, cuộc tình với nhiều gã quý tộc tư sản lắm tiền. Nhưng rồi chàng luật sư chân thành xuất hiện dùng trái tim chinh phục nàng, rồi cả hai cùng rời xa phồn hoa phố thị về sống cuộc sống bình dị cùng nhau. Nhưng rồi hạnh phúc cũng không kéo dài được lâu dưới cái nhìn của xã hội, cha của Duval tìm đến và buộc nàng chấm dứt quan hệ với Duval vì danh dự gia đình ông và vì tương lai của Duval.
+                            </p>
+                            <div class="top-down trans-delay-0-6">
+                                <a href="product-detail.html">
+                                    <button class="btn-flat btn-hover">
+                                    Chi tiết
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="img right-left">
+                        <img style="height: 100%;" src="./images/trahoanu.gif" alt="">
+                    </div>
+                </div> -->
+                <!-- end slide item -->
+            </div>
+            <!-- slider controller -->
+            <button class="slide-controll slide-next">
+                <i class='bx bxs-chevron-right'></i>
+            </button>
+            <button class="slide-controll slide-prev">
+                <i class='bx bxs-chevron-left'></i>
+            </button>
+            <!-- end slider controller -->
+        </div>
+    </div>
+    <!-- end hero section -->
+
+    <!-- promotion section -->
+    <div class="promotion">
+        <div class="section-header">
+            <h2>Sách đang thịnh hành</h2>
+        </div>
+        <div class="row">
+            {% for product in recent_products %}
+                <div class="col-4 col-md-12 col-sm-12">
+                    <div class="promotion-box">
+                        <div class="text">
+                            <h3>{{ product.category }}</h3>
+                            <a href="{% url 'product:productdetail' slug=product.slug %}">
+                                <button class="btn-flat btn-hover">
+                                Chi tiết
+                                </button>
+                            </a>
+                        </div>
+                        <img style="height: 170px; width: 150px; padding: 20px;" src="{{ product.image.url }}" alt="">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- end promotion section -->
+
+    <!-- product list -->
+    <div class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sách giảm giá</h2>
+            </div>
+            <div class="row" id="latest-products">
+                <div class="col-3 col-md-6 col-sm-12">
+                    <div class="product-card" >
+                        <div class="product-card-img">
+                            <img style="height: 200px; width: 150px;" src="./images/truyenngan.png" alt="">
+                        </div>
+                        <div class="product-card-info">
+                            <div class="product-btn">
+                                <a href="product-detail.html"><button class="btn-flat btn-hover btn-shop-now">Chi tiết</button></a>                                
+                                <a href="shopping-cart.html"><button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-cart-add'></i>
+                                </button>
+                                </a>
+                            </div>
+                            <div class="product-card-name">
+                                Thần đồng đất việt - tập 1
+                            </div>
+                            <div class="product-card-price">
+                                <span><del>10.000Đ</del></span>
+                                <span class="curr-price">8.000Đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer">
+                <a href="products.html"><button  class="btn-flat btn-hover">Xem tất cả</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    {% include "base/footer.html" %}
+    <!-- end footer -->
+
+    <!-- app js -->
+    {% include "home/js.html" %}
+</body>
+
+</html>

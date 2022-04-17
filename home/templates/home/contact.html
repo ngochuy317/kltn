@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    {% include "base/head.html" %}
+
+<body>
+
+    {% include "base/header.html" %}
+
+<section class="contact">
+
+        <div class="icons-container">
+
+            <div class="icons">
+                <i class="fas fa-phone"></i>
+                <h3>Số Điện Thoại</h3>
+                <p>0123456789</p>
+                <p>0227363521</p>
+            </div>
+
+            <div class="icons">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>abc@gmail.com</p>
+                <p>cde@gmail.com</p>
+            </div>
+
+            <div class="icons">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Địa Chỉ</h3>
+                <p>Cơ sở 1: 45 Nguyễn Khắc Nhu, P. Cô Giang, Q.1, TP. HCM</p>
+                <p>Cơ sở 2: 233A Phan Văn Trị, P.11, Q. Bình Thạnh, TP. HCM</p>
+                <p>Cơ sở 3: 69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh, TP. HCM</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <form action="">
+                <h3>Hỗ Trợ</h3>
+                <input type="text" placeholder="Họ và Tên" class="box">
+                <input type="phone" placeholder="Số Điện Thoại" class="box">
+                <input type="email" placeholder=Email class="box">
+                <textarea name="" placeholder="Lời Nhắn" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="Gửi" class="btn">
+            </form>
+
+            <iframe class="map"
+                src="https://tuyensinh.vanlanguni.edu.vn/wp-content/uploads/2017/09/BanDo_tuPhamVanDong_CS3.jpg"
+                allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+</section>
+
+    <!-- footer -->
+    {% include "base/footer.html" %}
+    <!-- end footer -->
+
+    <!-- app js -->
+    {% include "home/js.html" %}
+
+</body>
+
+</html>

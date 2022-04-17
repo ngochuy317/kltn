@@ -1,0 +1,65 @@
+html {
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+  }
+* {
+    box-sizing: border-box;
+}
+/* body {
+    min-height: 100vh;
+    background-image: url("{% static 'user/img/02.jpg' %}");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    background-attachment: fixed;
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    
+  } */
+  .sign-in {
+    padding: 120px 75px 90px 75px;
+    background:rgb(0,0,0,0.8);
+    color:#fff;
+    box-shadow: 0 0 20px 2px rgb(0,0,0,0.5);;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 30px;
+    height: 630px;
+    position: relative;
+  }
+  .logo-signin{
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      display: flex;
+      font-size: 13px;
+  }
+  .logo-signin h1{
+      margin-left: 20px;
+  }
+  .form-box{
+      align-content: center;
+      align-items: center;
+      justify-content:center ;
+      line-height: 30px;
+  }
+  .form-box label{
+      font-size: 15px;
+  }
+  .input-name,.input-email,.input-passwd,.input-re-passwd{
+      width: 100%;
+      /* max-width: 400px; */
+      border: none;
+      height: 30px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      font-family: "Poppins", sans-serif;
+      padding: 7px 7px;
+    }
+    .term{
+        transform: scale(1.5);
+        margin-right: 7px;
+        margin-bottom: 20px;
+    }

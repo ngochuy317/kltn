@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    {% include "adminpage/head.html" %}
+</head>
+<body>
+    <div class="navbar">
+		<!-- nav left -->
+		<ul class="navbar-nav">
+			
+			<li class="nav-item">
+				<img  src="{% static 'adminpage/img/logo.png' %}" alt="ATPro logo" class="logo logo-light">
+				<img  src="{% static 'adminpage/img/logo.png' %}" alt="ATPro logo" class="logo logo-dark">
+				<span style="font-size: 30px; font-weight: bold; transform: translateY(-20px); display: inline-block;">LDStore</span>
+			</li>
+		</ul>
+		<!-- end nav left -->
+		<!-- form -->
+		<form class="navbar-search">
+			<input type="text" name="Search" class="navbar-search-input" placeholder="What you looking for...">
+			<i class="fas fa-search"></i>
+		</form>
+		<!-- end form -->
+		<!-- nav right -->
+		<ul class="navbar-nav nav-right">
+			<li class="nav-item mode">
+				<a class="nav-link" href="#" onclick="switchTheme()">
+					<i class="fas fa-moon dark-icon"></i>
+					<i class="fas fa-sun light-icon"></i>
+				</a>
+			</li>
+			<!--  -->
+			<li class="nav-item avt-wrapper">
+				<div class="avt dropdown">
+					<img src="assets/tuat.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+					<ul id="user-menu" class="dropdown-menu">
+						<li  class="dropdown-menu-item">
+							<a class="dropdown-menu-link">
+								<div>
+									<i class="fas fa-user-tie"></i>
+								</div>
+								<span>Profile</span>
+							</a>
+						</li>
+						
+						<li  class="dropdown-menu-item">
+							<a href="#" class="dropdown-menu-link">
+								<div>
+									<i class="fas fa-sign-out-alt"></i>
+								</div>
+								<span>Logout</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		<!-- end nav right -->
+	</div>
+	<!-- end navbar -->
+	<!-- sidebar -->
+    {% include "adminpage/sidebar.html" %}
+
+
+    <!-- -------------------------------------bảng thông kê-------------------------------------- -->
+	<div class="wrapper">
+		<div class="table-manage">
+			<div class="card">
+				<div class="card-header">
+					<h3>
+						Quản Lý Sản Phẩm
+					</h3>
+					<i class="fas fa-ellipsis-h"></i>
+				</div>
+				<div class="card-content">
+					<table>
+						<thead>
+							<tr>
+								<th>STT</th>
+								<th>Tên Sản Phẩm</th>
+								<th>Giá</th>
+								<th>Mô Tả</th>
+								<th>Số Lượng</th>
+                                <th>Tình Trạng</th>
+                                <th>Số Lượng Đã Bán</th>
+								<th>Sửa</th>
+								<th>Xóa</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+                            <tr>
+								<td>6</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+                            <tr>
+								<td>7</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+                            <tr>
+								<td>8</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+                            <tr>
+								<td>9</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+                            <tr>
+								<td>10</td>
+								<td>React</td>
+								<td>20000Đ</td>
+								<td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ipsa labore, ipsam dolore cumque eius veritatis dignissimos, similique, atque beatae ratione dicta soluta delectus autem quam eaque! Architecto, totam atque?</td>
+								<td>1000 Cái</td>
+                                <td>Còn Hàng</td>
+                                <td>200 Cái</td>
+								<td><a href="#" class="btn">Xóa</a> </td>
+								<td><a href="#" class="btn">Sửa</a> </td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+	<script src="{% static 'adminpage/js/index.js' %}"></script>
+</body>
+</html>

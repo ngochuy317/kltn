@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    {% include "base/head.html" %}
+</head>
+
+<body>
+
+    <!-- header -->
+    {% include "base/header.html" %}
+    <!-- end header -->
+
+    <!-- product-detail content -->
+    <div class="bg-main">
+        <div class="container">
+            <div class="box">
+                <div class="breadcumb">
+                    <a href="{% url 'home:index' %}">Trang chủ</a>
+                    <span><i class='bx bxs-chevrons-right'></i></span>
+                    <a href="{% url 'product:product' %}">Xem tất cả</a>
+                    <span><i class='bx bxs-chevrons-right'></i></span>
+                    <a href="">{{ product.name }}</a>
+                </div>
+            </div>
+            <div class="row product-row">
+                <div class="col-5 col-md-12">
+                    <div class="product-img" id="product-img">
+                        <img style="height: 500px ; align-items: center;" src="{{ product.image.url }}" alt="">
+                    </div>
+                </div>
+                <div class="col-7 col-md-12">
+                    <div class="product-info">
+                        <h1>
+                            {{ product.name }}
+                        </h1>
+                        <div class="product-info-detail">
+                            <span class="product-info-detail-title">Thể loại:</span>
+                            <span href="#">{{ product.category }}</span>
+                        </div>
+                        <div class="product-info-detail">
+                            <span class="product-info-detail-title">Đánh giá:</span>
+                            <span class="rating">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                            </span>
+                        </div>
+                        <div class="product-card-price">
+                            <span><del>{{ product.amount }}Đ</del></span>
+                            <span class="curr-price">45.000Đ</span>
+                        </div>
+                        <div class="product-cart-quantity">
+                                <div class="product-quantity-wrapper">
+                            <span class="product-quantity-btn-plus">
+                                <i class='bx bx-minus'></i>
+                            </span>
+                            <input type="text" value="1" class="product-quantity"></input>
+                            <span class="product-quantity-btn-plus">
+                                <i class='bx bx-plus'></i>                              
+                            </span>
+                                </div>
+                        </div>
+                        <div>
+                            <a href="shopping-cart.html"><button class="btn-flat btn-hover">Thêm giỏ hàng</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header">
+                    Giới thiệu sản phẩm
+                </div>
+                <div class="product-detail-description">
+                    <!-- <button class="btn-flat btn-hover btn-view-description" id="view-all-description">
+                        View all
+                    </button> -->
+                    <div class="product-detail-description-content">
+                        <p>
+                            {{ product.description }}
+                        </p>
+                        
+                    </div>
+                </div>
+            <div class="box">
+                <div class="box-header">
+                    <h2>Đánh giá</h2>
+                </div>
+                <!-- <div class="container">
+                    <div class="inner">
+                      <div class="rating">
+                        <span class="rating-num">4.0</span>
+                        <div class="rating-stars">
+                          <span><i class="active icon-star"></i></span>
+                          <span><i class="active icon-star"></i></span>
+                          <span><i class="active icon-star"></i></span>
+                          <span><i class="active icon-star"></i></span>
+                          <span><i class="icon-star"></i></span>
+                        </div>
+                        <div class="rating-users">
+                          <i class="icon-user"></i> 1,014,004 total
+                        </div>
+                      </div>
+                  
+                      <div class="histo">
+                        <div class="five histo-rate">
+                          <span class="histo-star">
+                            <i class="active icon-star"></i> 5 </span>
+                          <span class="bar-block">
+                            <span id="bar-five" class="bar">
+                              <span>566,784</span>&nbsp;
+                            </span>
+                          </span>
+                        </div>
+                  
+                        <div class="four histo-rate">
+                          <span class="histo-star">
+                            <i class="active icon-star"></i> 4 </span>
+                          <span class="bar-block">
+                            <span id="bar-four" class="bar">
+                              <span>171,298</span>&nbsp;
+                            </span>
+                          </span>
+                        </div>
+                  
+                        <div class="three histo-rate">
+                          <span class="histo-star">
+                            <i class="active icon-star"></i> 3 </span>
+                          <span class="bar-block">
+                            <span id="bar-three" class="bar">
+                              <span>94,940</span>&nbsp;
+                            </span>
+                          </span>
+                        </div>
+                  
+                        <div class="two histo-rate">
+                          <span class="histo-star">
+                            <i class="active icon-star"></i> 2 </span>
+                          <span class="bar-block">
+                            <span id="bar-two" class="bar">
+                              <span>44,525</span>&nbsp;
+                            </span>
+                          </span>
+                        </div>
+                  
+                        <div class="one histo-rate">
+                          <span class="histo-star">
+                            <i class="active icon-star"></i> 1 </span>
+                          <span class="bar-block">
+                            <span id="bar-one" class="bar">
+                              <span>136,457</span>&nbsp;
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                    
+                    <div class="user-rate">
+                        <div class="user-info">
+                            <div class="user-avt">
+                                <img src="./images/tuat.jpg" alt="">
+                            </div>
+                            <div class="user-name">
+                                <span class="name">Nguyễn Văn Tèo</span>
+                                <span class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-rate-content">
+                            Sách rất hay và nội dung vô cùng cảm động. Mình rất thích :3
+                        </div>
+                    </div>
+                    <div class="user-rate">
+                        <div class="user-info">
+                            <div class="user-avt">
+                                <img src="./images/tuat.jpg" alt="">
+                            </div>
+                            <div class="user-name">
+                                <span class="name">Phạm Thị Thu</span>
+                                <span class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-rate-content">
+                            Tạm được!!!
+                        </div>
+                    </div>
+                    <div class="user-rate">
+                        <div class="user-info">
+                            <div class="user-avt">
+                                <img src="./images/tuat.jpg" alt="">
+                            </div>
+                            <div class="user-name">
+                                <span class="name">Cao Kì Tài</span>
+                                <span class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-rate-content">
+                            Sách hay, đáng để mọi người đọc thử.
+                        </div>
+                    </div>
+                    <div class="user-rate">
+                        <div class="user-info">
+                            <div class="user-avt">
+                                <img src="./images/tuat.jpg" alt="">
+                            </div>
+                            <div class="user-name">
+                                <span class="name">Dương Anh Tú</span>
+                                <span class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-rate-content">
+                            Phù hợp cho các đôi yêu nhau :>
+                        </div>
+                    </div>
+                    <div class="user-rate">
+                        <div class="user-info">
+                            <div class="user-avt">
+                                <img src="./images/tuat.jpg" alt="">
+                            </div>
+                            <div class="user-name">
+                                <span class="name">Huỳnh Văn Tiến</span>
+                                <span class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="user-rate-content">
+                            Không phù hợp với bản thân mình.
+                        </div>
+                    </div>
+                    <div class="box">
+                        <ul class="pagination">
+                            <li><a href="#"><i class='bx bxs-chevron-left'></i></a></li>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#"><i class='bx bxs-chevron-right'></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header">
+                    <h2>Sản phẩm khác</h2>
+                </div>
+                <div class="row" id="related-products"></div>
+                <div class="box">
+                    <ul class="pagination">
+                        <li><a href="#"><i class='bx bxs-chevron-left'></i></a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class='bx bxs-chevron-right'></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product-detail content -->
+
+    <!-- footer -->
+    {% include "base/footer.html" %}
+    <!-- end footer -->
+
+    <!-- app js -->
+    {% include "base/js.html" %}
+</body>
+
+</html>
