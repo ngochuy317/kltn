@@ -16,3 +16,9 @@ class Payment(LoginRequiredMixin, View):
     
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+class AddToCart(LoginRequiredMixin, View):
+    template_name = "order/shopping-cart.html"
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)

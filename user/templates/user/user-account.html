@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    {% include "base/head.html" %}
+</head>
+<body>
+    {% include "base/header.html" %}
+
+    <div class="container">
+        <div class="profile-main" style="display: flex;">
+            <div class="box-left-1" style="height:auto;width: 20%; ">
+                <div class="in4-avt-content" style="display: flex;">
+                    <div class="in4-avt">
+                        <img src="/Page-Admin/img/mpvc.png"class="i4-img" alt=""style="">
+                    </div>               
+                    <div class="in4-avt-shopname">
+                        {{ request.user.username }}
+                    </div>
+                </div>     
+                <div class="in4-sidebar">
+                    <ul class="in4-myacc-detail">
+                        <div class="i4-myacc">Tài khoản của tôi</div>
+                        <li> <a href="{% url 'profile' %}" class="hoso-hv" style="color:#f6003c;">Hồ sơ</a></li>
+                        <li><a href="{% url 'change-password' %}" class="dmk-hv">Đổi mật khẩu</a></li>
+                    </ul>
+                </div>    
+            </div>
+            <div class="wrap-box-right-2" style="width:980px">
+                <div class="box-right-2" style="height: auto; ">
+                    <div class="i4-title-side" >
+                        <h1 style="padding-bottom: 5px;text-transform: capitalize;font-weight: 500;font-size: 20px;">Hồ sơ của tôi</h1>
+                        <p style="font-size: 14px;">Quản lý hồ sơ để bảo mật tài khoản</p>
+                    </div>
+                    <div class="wrap-box-right-content" style="display: flex;">
+                        <div class="wrap-box-right-content-1" style="width:80%;">
+                            <div class="user-name-wrap" style="display: flex;" >
+                                <div class="user-name-label"><label for="">Tên đăng nhập</label></div>
+                                <div class="user-name-console">{{ request.user.username }}</div>
+                            </div>
+                            <div class="name-wrap" style="display: flex;">
+                                <div class="name-label"><label for="">Tên</label></div>
+                                <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; "></div>
+                            </div>
+                            <div class="email-wrap" style="display: flex;">
+                                <div class="email-label"><label for="">Email</label></div>
+                                <div class="email-console">{{ request.user.email }}</div>
+                                <div class="email-change"><a href="email.html">Thay đổi</a></div>
+                            </div>
+                            <div class="phone-wrap" style="display: flex;">
+                                <div class="phone-label"><label for="">Số điện thoại</label></div>
+                                <div class="phone-console">
+                                    {% if request.user.phone_number %}
+                                        {{ request.user.phone_number }}
+                                    {% else %}
+                                        Chưa có
+                                    {% endif %}
+                                </div>
+                                <div class="phone-change"><a href="#">Thay đổi</a></div>
+                            </div>
+                            <div class="address-wrap"style="display:flex;">
+                                <div class="address-label"><label for="">Địa chỉ</label></div>
+                                <div class="address-console">
+                                    {% if request.user.address %}
+                                        {{ request.user.address }}
+                                    {% else %}
+                                        Chưa có
+                                    {% endif %}
+                                </div>
+                                <div class="address-change"><a href="#">Thay đổi</a></div>
+                            </div>
+                            <div class="gender-wrap" style="display: flex;">
+                                <div class="gender-label"><label for="">Giới tính</label></div>
+                                <div class="gender-button-checked" style="display: flex;">
+                                    <div class="gender-female"style="display:flex;">
+                                        <input type="radio" id="female" name="gender" aria-checked="true" checked>
+                                        <p>Nam</p>
+                                    </div>
+                                    <div class="gender-male" style="display: flex;">
+                                        <input type="radio" id="male" name="gender" aria-checked="false"><p>Nữ</p>
+                                    </div>
+                                    <div class="gender-another"style="display: flex;">
+                                        <input type="radio" id="another" name="gender" aria-checked="false"><p>Khác</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="birth-wrap" style="display: flex;">
+                                <div class="birth-label"><label for="">Ngày sinh</label></div>
+                                <div class="birth-input">
+                                    <input type="date">
+                                </div>
+                            </div>
+                            <div class="save-i4-button">
+                                <button><a href="#">Lưu</a></button>
+                            </div>
+                        </div>
+
+                        <div class="box-right-2-avt"style="display:flex;">
+                            <div class="box-right-2-avt-wrap">
+                                <div class="wrap-image-change-shop" style="display: flex;">
+                                    <div class="avt-url-change"><img src="/Page-Admin/img/mpvc.png" alt=""></div>
+                                </div>
+                                <input type="file" accept=" .jpg, .jpeg, .png" class="avt-url-change-btn">
+                            </div>
+                        </div>
+
+                    </div>
+                      
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+
+    {% include "base/footer.html" %}
+</body>
+

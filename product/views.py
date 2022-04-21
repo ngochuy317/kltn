@@ -33,7 +33,7 @@ class ProductView(View):
         context = {
             "products": products,
             "title": "Products",
-            "categories": categories
+            "categories": categories,
         }
         return render(request, self.template_name, context)
 

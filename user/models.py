@@ -15,6 +15,7 @@ class UserManager(BaseUserManager):
 
         user = self.model(username=username)
         user.set_password(password)
+        user.is_active = True
         user.save()
 
         return user
@@ -48,6 +49,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField()
     fullname = models.CharField(max_length=50, blank=True, null=True)
     avatar = models.ImageField(upload_to ='media/user/avatar/%Y/%m/%d', blank=True, null=True)
+    address = models.CharField(max_length=300, blank=True, null=True)
     phone_number = models.CharField(max_length=10, blank=True, null=True)
     sex = models.CharField(max_length=10, choices=SEX_CHOICES, default="-")
     is_admin = models.BooleanField(default=False)
@@ -63,15 +65,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self) -> str:
         return self.username
 
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
 
-# class EmailBackend(ModelBackend):
-#     def authenticate(self, request, username=None, password=None, **kwargs):
-#         try:
-#             print("Trying the email backend!")
-#             user = CustomUser.objects.get(username=username)
-#             print("Got the user")
-#             if user.check_password(password): # check valid password
-#                 return user
-#             print("password didn't work")
-#         except ObjectDoesNotExist:
-#             return None
+    def has_module_perms(self, app_label):
+        return True
+

@@ -1,4 +1,5 @@
 from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
@@ -23,7 +24,7 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        login(request, user)
+        login(request, user, backend='django.contrib.auth.backends.ModelBackend')
         return redirect('home:index')
     else:
         return HttpResponse('Activation link is invalid!')
@@ -43,9 +44,9 @@ class SignIn(View):
             password=password, 
             is_active=True
         ).first()
-
+        print("-"*30, user_authent)
         if user_authent:
-            login(request, user_authent)
+            login(request, user_authent, backend='django.contrib.auth.backends.ModelBackend')
             return redirect("home:index")
         context = {
             "errors": "Username or password does not correct or the account is not activated"
@@ -122,3 +123,24 @@ class SignOut(View):
     def get(self, request, *args, **kwargs):
         logout(request)
         return redirect("home:index")
+
+
+
+class Profile(LoginRequiredMixin, View):
+    template_name = "user/user-account.html"
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            'title': "Profile",
+        }
+        return render(request, self.template_name, context)
+
+
+class ChangePassword(LoginRequiredMixin, View):
+    template_name = "user/password.html"
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            'title': "Profile",
+        }
+        return render(request, self.template_name, context)

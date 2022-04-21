@@ -23,7 +23,8 @@ class ProductSliderInline(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'amount',)
+    search_fields = ['name', 'id']
+    list_display = ('name', 'price', 'description', 'amount',)
     
 
 admin.site.register(Category)

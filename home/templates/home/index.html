@@ -138,33 +138,35 @@
             <div class="section-header">
                 <h2>Sách giảm giá</h2>
             </div>
-            <div class="row" id="latest-products">
+            <div class="row">
+                {% for product in discount_book %}
                 <div class="col-3 col-md-6 col-sm-12">
                     <div class="product-card" >
                         <div class="product-card-img">
-                            <img style="height: 200px; width: 150px;" src="./images/truyenngan.png" alt="">
+                            <img style="height: 200px; width: 150px;" src="{{ product.image.url }}" alt="">
                         </div>
                         <div class="product-card-info">
                             <div class="product-btn">
-                                <a href="product-detail.html"><button class="btn-flat btn-hover btn-shop-now">Chi tiết</button></a>                                
+                                <a href="{% url 'product:productdetail' slug=product.slug %}"><button class="btn-flat btn-hover btn-shop-now">Chi tiết</button></a>                                
                                 <a href="shopping-cart.html"><button class="btn-flat btn-hover btn-cart-add">
                                     <i class='bx bxs-cart-add'></i>
                                 </button>
                                 </a>
                             </div>
                             <div class="product-card-name">
-                                Thần đồng đất việt - tập 1
+                                {{ product.name }}
                             </div>
                             <div class="product-card-price">
-                                <span><del>10.000Đ</del></span>
-                                <span class="curr-price">8.000Đ</span>
+                                <span><del>{{ product.price }}</del></span>
+                                <span class="curr-price">{{ product.discount_price }}</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <div class="section-footer">
-                <a href="products.html"><button  class="btn-flat btn-hover">Xem tất cả</button></a>
+                <a href="{% url 'product:product' %}"><button  class="btn-flat btn-hover">Xem tất cả</button></a>
             </div>
         </div>
     </div>

@@ -41,10 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'home',
-    'allauth_office365',
     'adminpage',
     'product',
     'order',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -140,8 +140,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SOCIALACCOUNT_EMAIL_VERIFICATION = False
-
 LOGIN_URL = '/user/signin/'
 
 AUTH_USER_MODEL = 'user.CustomUser'
@@ -153,3 +151,8 @@ EMAIL_HOST_PASSWORD = 'Django123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+AUTHENTICATION_BACKENDS = (
+    'user.backends.AdminAuthBackend',
+    'django.contrib.auth.backends.ModelBackend'
+)

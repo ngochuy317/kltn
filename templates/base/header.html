@@ -32,6 +32,8 @@
                         <li><a href="{% url 'order:cart' %}"><i class='bx bx-cart'></i></a></li>
                         {% if request.user.is_authenticated %}
                             <li><a href="{% url 'signout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                            <li><a href="{% url 'profile' %}"><i class="bx bx-cog"></i></a></li>
+                            <p>Hi {{ request.user.username }}</p>
                         {% else %}
                             <li><a href="{% url 'signin' %}"><i class='bx bx-user-circle'></i></a></li>
                         {% endif %}

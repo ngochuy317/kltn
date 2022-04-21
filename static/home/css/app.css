@@ -20,6 +20,66 @@
     padding:30px 0;
     
 }
+img.i4-img{
+  border-radius: 50%;
+  width: 60px;
+}
+.in4-avt{
+  padding: 10px 0;
+}
+.in4-avt-content{
+  border-bottom: 1px solid #d3d3d3;
+
+}
+.in4-myacc-detail>li{
+  padding: 5px 0;
+  padding-left: 30px;
+}
+.in4-myacc-detail{
+  padding-top: 20px;
+}
+.i4-myacc{
+  font-weight: bold;
+  padding:5px 0;
+  padding-left: 5px;
+}
+.i4-title-side{
+  border-bottom: solid 1px #d3d3d3;
+  width: 100%;
+  padding: 10px 0;
+  /* height: 30px; */
+}
+
+.wrap-box-right-content label{
+  color: rgba(85,85,85,.8);
+}
+.user-name-label,.name-label,.email-label,.phone-label,.address-label,.gender-label,.birth-label{
+  text-align: right;
+  width: 20%;
+  font-size: 15px;
+  
+}
+.wrap-box-right-content{
+  padding-top: 25px;
+}
+.gender-male,.gender-female,.gender-another{
+  margin-right: 20px;
+}
+.gender-wrap input{
+  transform: scale(1.1);
+}
+.gender-wrap p{
+  padding-left: 5px;
+  font-size: 14px;
+}
+.user-name-wrap,.name-wrap,.email-wrap,.phone-wrap,.address-wrap,.gender-wrap,.birth-wrap{
+  margin-bottom: 20px;
+  align-items: center;
+}
+.user-name-console,.name-input,.email-console,.phone-console,.address-console,.gender-button-checked,.birth-input{
+  padding-left: 20px;
+  font-size: 13.8px;
+}
 .box-order {
   background-color: #fff;
   margin: 10px 0;
@@ -37,7 +97,7 @@
   width: 63px;
   height: 37px;
   position: absolute;
-  left: 75.2%;
+  /* left: 75.2%; */
   font-size: 25px;
   border-radius: 0 10px 10px 0;
   background-color: #f6003c;
@@ -48,6 +108,10 @@
 }
 .box-order-product-name {
   width: 35%;
+}
+.hoso-hv:hover,.dmk-hv:hover{
+  transform: translateX(10px);
+  transition: ease-in-out 0.3s;
 }
 .box-order-product-categories,.box-order-price,.box-order-quantity,.box-order-total,.box-order-actions{
     width: 20%;
@@ -81,7 +145,6 @@
     height: auto;
     width: 35%;
 }
-
 .product-shopping-cart-card{
     display: flex !important;
     background-color: #fff;
@@ -1655,7 +1718,61 @@ footer ul li {
   width: 100%;
   border-radius: 1rem;
 }
-
+.box-right-2{
+  padding: 20px 20px;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 13%); 
+}
+.box-left-1{
+  padding: 0 20px;
+}
+.in4-avt-shopname{
+  padding:30px 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.email-change,.phone-change,.address-change{
+  padding-left: 5px;
+  font-size: 13.8px;
+  color: #05a;
+  text-decoration: underline !important;
+}
+.wrap-box-right-content a{
+  text-decoration: underline;
+}
+.save-i4-button a{
+  text-decoration: none;
+}
+.save-i4-button button{
+  padding: 10px 20px;
+  background-color: #f6003c;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  color: #fff;
+}
+.save-i4-button{
+  padding-left: 150px;
+  margin-bottom: 30px;
+}
+.email-change-pd{
+  padding: 70px 0;
+}
+.save-i4-button:hover{
+  opacity: 0.8;
+}
+.box-right-2-avt{
+  border-left: 0.0625rem solid #efefef;
+}
+.box-right-2-avt input{
+  padding: 30px 20px;
+}
+.avt-url-change img{
+  border-radius: 50%;
+}
+.wrap-image-change-shop{
+  justify-content: center;
+  position: relative;
+}
 /* @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400);
 @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
