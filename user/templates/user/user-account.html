@@ -89,7 +89,7 @@
                                 <div class="wrap-image-change-shop" style="display: flex;">
                                     <div class="avt-url-change"><img src="{% if request.user.avatar %}{{ request.user.avatar.url }}{% endif %}" alt=""></div>
                                 </div>
-                                <input type="file" accept=" .jpg, .jpeg, .png" class="avt-url-change-btn" name="{{ form.avatar.name }}" value="{{ form.avatar.value.url }}">
+                                <input type="file" accept=" .jpg, .jpeg, .png" class="avt-url-change-btn" name="{{ form.avatar.name }}" value="{% if form.avatar.value %}{{ form.avatar.value.url }}{% endif %}">
                             </div>
                         </div>
                     </div>
