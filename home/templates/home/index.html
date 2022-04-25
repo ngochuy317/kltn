@@ -148,7 +148,7 @@
                         <div class="product-card-info">
                             <div class="product-btn">
                                 <a href="{% url 'product:productdetail' slug=product.slug %}"><button class="btn-flat btn-hover btn-shop-now">Chi tiết</button></a>                                
-                                <a href="shopping-cart.html"><button class="btn-flat btn-hover btn-cart-add">
+                                <a href="#"><button class="btn-flat btn-hover btn-cart-add" id="add-cart-button-home" data-id="{{product.id}}">
                                     <i class='bx bxs-cart-add'></i>
                                 </button>
                                 </a>
@@ -177,6 +177,31 @@
 
     <!-- app js -->
     {% include "home/js.html" %}
+    <script>
+        $(document).on('click','#add-cart-button-home', function(e){
+            e.preventDefault();
+            const product_id = $(this).data("id");
+            const quantity =$('#product_quantity').val() || 1;
+            $.ajax({
+                type:'POST',
+                url: '{% url "order:add-to-cart" %}',
+                data: {
+                    id: product_id,
+                    quantity: quantity,
+                    csrfmiddlewaretoken: "{{csrf_token}}",
+                    action: "post",
+                },
+                success: function(json){
+                    console.log(json)
+                    // document.getElementById("cart-count").innerHTML = json.no_items
+                //    $("#AddModal").modal();
+                },
+                error: function(xhr,errmsg,err){
+                    console.log(xhr);
+                }
+            });
+        })
+    </script>
 </body>
 
 </html>
