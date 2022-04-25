@@ -48,7 +48,7 @@ class ProductSearch(View):
         user_search = request.POST.get('user_search')
         if user_search:
             user_search = remove_accents(user_search)
-            products = [x for x in products if x.search_name==user_search]
+            products = [x for x in products if user_search in x.search_name]
 
         context = {
             "products": products,

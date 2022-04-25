@@ -9,4 +9,5 @@ urlpatterns = [
     path('activate/<str:uidb64>/<str:token>/', activate, name='activate'),
     path('profile/', Profile.as_view(), name='profile'),
     path('change-password/', ChangePassword.as_view(), name='change-password'),
+    path('change-email/', ChangeEmail.as_view(), name='change-email'),
 ]

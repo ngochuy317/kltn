@@ -10,6 +10,7 @@ from django.views.generic import View
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
+from .forms import CustomUserForm
 from .models import CustomUser
 from .tokens import account_activation_token
 
@@ -130,7 +131,9 @@ class Profile(LoginRequiredMixin, View):
     template_name = "user/user-account.html"
 
     def get(self, request, *args, **kwargs):
+        form = CustomUserForm()
         context = {
+            'form': form,
             'title': "Profile",
         }
         return render(request, self.template_name, context)
@@ -144,3 +147,16 @@ class ChangePassword(LoginRequiredMixin, View):
             'title': "Profile",
         }
         return render(request, self.template_name, context)
+
+class ChangeEmail(LoginRequiredMixin, View):
+    template_name = "user/email.html"
+
+    def get(self, request, *args, **kwargs):
+        context = {
+            'title': "Profile",
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        pass
+

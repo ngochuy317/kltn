@@ -132,7 +132,7 @@ renderProducts = (products) => {
                 </div>
             </div>
         `
-        product_list.insertAdjacentHTML("beforeend", prod)
+        // product_list.insertAdjacentHTML("beforeend", prod)
     })
 }
 

@@ -1,56 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
-    <!-- favicon -->
-    <link rel="shortcut icon" href="images/logo.png" type="image/png">
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100&display=swap" rel="stylesheet">
-    <!-- boxicons -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <!-- app css -->
-    <link rel="stylesheet" href="./css/grid.css">
-    <link rel="stylesheet" href="./css/app.css">
+    {% include "base/head.html" %}
 </head>
 <body>
-    <header>
-        <!-- mobile menu -->
-        <div class="mobile-menu bg-second">
-            <a href="#" class="mb-logo">LDStore</a>
-            <span class="mb-menu-toggle" id="mb-menu-toggle">
-                <i class='bx bx-menu'></i>
-            </span>
-        </div>
-        <!-- end mobile menu -->
-        <!-- main header -->
-        <div class="header-wrapper" id="header-wrapper">
-            <span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
-                <i class='bx bx-x'></i>
-            </span>
-            <!-- mid header -->
-            <div class="bg-main">
-                <div class="mid-header container">
-                    <img src="./images/favicon3.png" alt="">
-                    <a href="#" class="logo">LDStore</a>
-                    <div class="search">
-                        <input type="text" placeholder="Tìm kiếm">
-                    </div>
-                    <button type="button" class="search-icon-custom">
-                        <i class='bx bx-search-alt'></i>
-                    </button>
-                    <ul class="user-menu">
-                        <li><a href="sign-in.html"><i class='bx bx-user-circle'></i></a></li>
-                        <li><a href="shopping-cart.html"><i class='bx bx-cart'></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
+    {% include "base/header.html" %}
         <!-- end header -->
         <div class="wrapper-all">
             <!-- header -->
@@ -85,32 +41,30 @@
                     <div class="inline-shop-name">LDStore</div>
                     <div class="inline-mess">Chat Now</div>
                 </div>
+                {% for item in carts %}
                 <div class="shopping-cart-detail-box">
                     <div class="product-shopping-cart-card">
                         <div class="wrap-checkbox-img">
-                            <div class="product-cart-img" style="background-image: url(./images/tri-tue-xuc-cam.png);">
+                            <div class="product-cart-img" style="background-image: url({{item.product.image.url}});">
                             </div>
-                            <div class="product-cart-name"><a href="#">[SKU-01]trí tuệ xúc cảm</a></div>
+                            <div class="product-cart-name"><a href="#">{{ item.product.name|truncatechars:12 }}</a></div>
                         </div>
-                        <div class="product-cart-categories">tình cảm</div>
+                        <div class="product-cart-categories">{{ item.product.category }}</div>
                         <div class="product-cart-price">
-                            <div class="product-cart-old-price">60.000Đ</div>
-                            <div class="product-cart-old-new-price">55.000Đ</div>
+                            <!-- <div class="product-cart-old-price">60.000Đ</div> -->
+                            <div class="product-cart-old-new-price">{{ item.product.price }}Đ</div>
                         </div>
                         <div class="product-cart-quantity">
                             <div class="product-quantity-wrapper">
-                                <span class="product-quantity-btn-minus">
-                                    <i class="bx bx-minus"></i>
-                                </span>
-                                <input type="text" value="1" class="product-quantity"></input>
-                                <span class="product-quantity-btn-plus">
-                                    <i class="bx bx-plus"></i>
-                                </span>
+    
+                                {{ item.quantity }}
+                             
                             </div>
                         </div>
-                        <div class="product-cart-total">55.000Đ</div>
+                        <div class="product-cart-total">{{ item.get_total_price }}Đ</div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
             <!-- end detail shopping cart -->
             <div class="container">
@@ -156,68 +110,7 @@
             </div>
         </div>
         
-        <footer class="bg-second">
-            <div class="container">
-                <div class="row">
-                    <div class="col-3 col-md-6">
-                        <h3 class="footer-head">Sản phẩm</h3>
-                        <ul class="menu">
-                            <li><a href="#">Help center</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">product help</a></li>
-                            <li><a href="#">warranty</a></li>
-                            <li><a href="#">order status</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-3 col-md-6">
-                        <h3 class="footer-head">Dịch vụ</h3>
-                        <ul class="menu">
-                            <li><a href="#">Help center</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">product help</a></li>
-                            <li><a href="#">warranty</a></li>
-                            <li><a href="#">order status</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-3 col-md-6">
-                        <h3 class="footer-head">Hỗ trợ</h3>
-                        <ul class="menu">
-                            <li><a href="#">Help center</a></li>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">product help</a></li>
-                            <li><a href="#">warranty</a></li>
-                            <li><a href="#">order status</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-3 col-md-6 col-sm-12">
-                        <div class="contact">
-                            <h3 class="contact-header">
-                                LDStore
-                            </h3>
-                            <ul class="contact-socials">
-                                <li><a href="#">
-                                        <i class='bx bxl-facebook-circle'></i>
-                                    </a></li>
-                                <li><a href="#">
-                                        <i class='bx bxl-instagram-alt'></i>
-                                    </a></li>
-                                <li><a href="#">
-                                        <i class='bx bxl-youtube'></i>
-                                    </a></li>
-                                <li><a href="#">
-                                        <i class='bx bxl-twitter'></i>
-                                    </a></li>
-                            </ul>
-                        </div>
-                        <div class="subscribe">
-                            <input type="email" placeholder="ENTER YOUR EMAIL">
-                            <button>subscribe</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">Copyright LDStore since 2022</div>
-        </footer>
-        <script src="./js/app.js"></script>
-        <script src="./js/product-detail.js"></script>
+        {% include "base/footer.html" %}
+        <script src="{% static 'home/js/app.js' %}"></script>
+        <script src="{% static 'product/js/product-detail.js' %}"></script>
     </body>

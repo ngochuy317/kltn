@@ -35,20 +35,20 @@
                     <div class="wrap-box-right-content" style="display: flex;">
                         <div class="wrap-box-right-content-1" style="width:80%;">
                             <div class="user-name-wrap" style="display: flex;" >
-                                <div class="user-name-label"><label for="">Tên đăng nhập</label></div>
+                                <div class="user-name-label"><label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label></div>
                                 <div class="user-name-console">{{ request.user.username }}</div>
                             </div>
                             <div class="name-wrap" style="display: flex;">
-                                <div class="name-label"><label for="">Tên</label></div>
+                                <div class="name-label"><label for="">{{ form.username.label }}</label></div>
                                 <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; "></div>
                             </div>
                             <div class="email-wrap" style="display: flex;">
-                                <div class="email-label"><label for="">Email</label></div>
+                                <div class="email-label"><label for="">{{ form.email.label }}</label></div>
                                 <div class="email-console">{{ request.user.email }}</div>
-                                <div class="email-change"><a href="email.html">Thay đổi</a></div>
+                                <div class="email-change"><a href="{% url 'change-email' %}">Thay đổi</a></div>
                             </div>
                             <div class="phone-wrap" style="display: flex;">
-                                <div class="phone-label"><label for="">Số điện thoại</label></div>
+                                <div class="phone-label"><label for="">{{ form.phone_number.label }}</label></div>
                                 <div class="phone-console">
                                     {% if request.user.phone_number %}
                                         {{ request.user.phone_number }}
@@ -59,7 +59,7 @@
                                 <div class="phone-change"><a href="#">Thay đổi</a></div>
                             </div>
                             <div class="address-wrap"style="display:flex;">
-                                <div class="address-label"><label for="">Địa chỉ</label></div>
+                                <div class="address-label"><label for="">{{ form.address.label }}</label></div>
                                 <div class="address-console">
                                     {% if request.user.address %}
                                         {{ request.user.address }}
@@ -70,22 +70,24 @@
                                 <div class="address-change"><a href="#">Thay đổi</a></div>
                             </div>
                             <div class="gender-wrap" style="display: flex;">
-                                <div class="gender-label"><label for="">Giới tính</label></div>
+                                <div class="gender-label"><label for="">{{ form.sex.label }}</label></div>
                                 <div class="gender-button-checked" style="display: flex;">
+                                    {% for label in form.selected_genders_labels %}
                                     <div class="gender-female"style="display:flex;">
                                         <input type="radio" id="female" name="gender" aria-checked="true" checked>
-                                        <p>Nam</p>
+                                        <p>{{ label }]</p>
                                     </div>
-                                    <div class="gender-male" style="display: flex;">
+                                    {% endfor %}
+                                    <!-- <div class="gender-male" style="display: flex;">
                                         <input type="radio" id="male" name="gender" aria-checked="false"><p>Nữ</p>
                                     </div>
                                     <div class="gender-another"style="display: flex;">
                                         <input type="radio" id="another" name="gender" aria-checked="false"><p>Khác</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="birth-wrap" style="display: flex;">
-                                <div class="birth-label"><label for="">Ngày sinh</label></div>
+                                <div class="birth-label"><label for="">{{ form.dob.label }}</label></div>
                                 <div class="birth-input">
                                     <input type="date">
                                 </div>

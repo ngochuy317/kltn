@@ -51,6 +51,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     avatar = models.ImageField(upload_to ='media/user/avatar/%Y/%m/%d', blank=True, null=True)
     address = models.CharField(max_length=300, blank=True, null=True)
     phone_number = models.CharField(max_length=10, blank=True, null=True)
+    dob = models.DateField(blank=True, null=True)
     sex = models.CharField(max_length=10, choices=SEX_CHOICES, default="-")
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.functional import cached_property
 
 from user.models import CustomUser
 from product.models import Product
