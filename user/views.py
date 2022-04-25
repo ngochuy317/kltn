@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import EmailMessage
+from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from django.shortcuts import render, redirect
@@ -45,7 +46,7 @@ class SignIn(View):
             password=password, 
             is_active=True
         ).first()
-        print("-"*30, user_authent)
+
         if user_authent:
             login(request, user_authent, backend='django.contrib.auth.backends.ModelBackend')
             return redirect("home:index")
@@ -131,10 +132,21 @@ class Profile(LoginRequiredMixin, View):
     template_name = "user/user-account.html"
 
     def get(self, request, *args, **kwargs):
-        form = CustomUserForm()
+        user = CustomUser.objects.filter(username=self.request.user.username).first()
+        form = CustomUserForm(initial=model_to_dict(user), request=request)
         context = {
             'form': form,
             'title': "Profile",
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        
+        form = CustomUserForm(request.POST, request.FILES, request=request)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
         }
         return render(request, self.template_name, context)
 
@@ -157,6 +169,4 @@ class ChangeEmail(LoginRequiredMixin, View):
         }
         return render(request, self.template_name, context)
 
-    def post(self, request, *args, **kwargs):
-        pass
 

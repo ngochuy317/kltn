@@ -12,7 +12,7 @@
             <div class="box-left-1" style="height:auto;width: 20%; ">
                 <div class="in4-avt-content" style="display: flex;">
                     <div class="in4-avt">
-                        <img src="/Page-Admin/img/mpvc.png"class="i4-img" alt=""style="">
+                        <img src="{% if request.user.avatar %}{{ request.user.avatar.url }}{% endif %}"class="i4-img" alt=""style="">
                     </div>               
                     <div class="in4-avt-shopname">
                         {{ request.user.username }}
@@ -32,52 +32,39 @@
                         <h1 style="padding-bottom: 5px;text-transform: capitalize;font-weight: 500;font-size: 20px;">Hồ sơ của tôi</h1>
                         <p style="font-size: 14px;">Quản lý hồ sơ để bảo mật tài khoản</p>
                     </div>
+                    <form method="post" action="{% url 'profile' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
                     <div class="wrap-box-right-content" style="display: flex;">
                         <div class="wrap-box-right-content-1" style="width:80%;">
                             <div class="user-name-wrap" style="display: flex;" >
-                                <div class="user-name-label"><label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label></div>
+                                <div class="user-name-label"><label for="">{{ form.username.label }}</label></div>
                                 <div class="user-name-console">{{ request.user.username }}</div>
                             </div>
                             <div class="name-wrap" style="display: flex;">
-                                <div class="name-label"><label for="">{{ form.username.label }}</label></div>
-                                <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; "></div>
+                                <div class="name-label"><label for="">{{ form.fullname.label }}</label></div>
+                                <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; " name="{{ form.fullname.name }}" value="{{ form.fullname.value }}"></div>
                             </div>
                             <div class="email-wrap" style="display: flex;">
                                 <div class="email-label"><label for="">{{ form.email.label }}</label></div>
-                                <div class="email-console">{{ request.user.email }}</div>
-                                <div class="email-change"><a href="{% url 'change-email' %}">Thay đổi</a></div>
+                                <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; " name="{{ form.email.name }}" value="{{ form.email.value }}"></div>
                             </div>
                             <div class="phone-wrap" style="display: flex;">
                                 <div class="phone-label"><label for="">{{ form.phone_number.label }}</label></div>
-                                <div class="phone-console">
-                                    {% if request.user.phone_number %}
-                                        {{ request.user.phone_number }}
-                                    {% else %}
-                                        Chưa có
-                                    {% endif %}
-                                </div>
-                                <div class="phone-change"><a href="#">Thay đổi</a></div>
+                                <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; " name="{{ form.phone_number.name }}" value="{{ form.phone_number.value }}"></div>
                             </div>
                             <div class="address-wrap"style="display:flex;">
                                 <div class="address-label"><label for="">{{ form.address.label }}</label></div>
-                                <div class="address-console">
-                                    {% if request.user.address %}
-                                        {{ request.user.address }}
-                                    {% else %}
-                                        Chưa có
-                                    {% endif %}
-                                </div>
-                                <div class="address-change"><a href="#">Thay đổi</a></div>
+                                <div class="name-input" style="width:80%"><input type="text" style="width:80%;padding: 5px; " name="{{ form.address.name }}" value="{{ form.address.value }}"></div>
                             </div>
                             <div class="gender-wrap" style="display: flex;">
                                 <div class="gender-label"><label for="">{{ form.sex.label }}</label></div>
                                 <div class="gender-button-checked" style="display: flex;">
-                                    {% for label in form.selected_genders_labels %}
+                                   
                                     <div class="gender-female"style="display:flex;">
-                                        <input type="radio" id="female" name="gender" aria-checked="true" checked>
-                                        <p>{{ label }]</p>
+                                        <!-- <input type="radio" id="female" name="gender" aria-checked="true" checked> -->
+                                        {{ form.sex }}
                                     </div>
-                                    {% endfor %}
+                                   
                                     <!-- <div class="gender-male" style="display: flex;">
                                         <input type="radio" id="male" name="gender" aria-checked="false"><p>Nữ</p>
                                     </div>
@@ -89,25 +76,24 @@
                             <div class="birth-wrap" style="display: flex;">
                                 <div class="birth-label"><label for="">{{ form.dob.label }}</label></div>
                                 <div class="birth-input">
-                                    <input type="date">
+                                    <input type="date" name="{{ form.dob.name }}"  value="{{ form.dob.value|date:'Y-m-d' }}">
                                 </div>
                             </div>
                             <div class="save-i4-button">
-                                <button><a href="#">Lưu</a></button>
+                                <button>Lưu</button>
                             </div>
                         </div>
 
                         <div class="box-right-2-avt"style="display:flex;">
                             <div class="box-right-2-avt-wrap">
                                 <div class="wrap-image-change-shop" style="display: flex;">
-                                    <div class="avt-url-change"><img src="/Page-Admin/img/mpvc.png" alt=""></div>
+                                    <div class="avt-url-change"><img src="{% if request.user.avatar %}{{ request.user.avatar.url }}{% endif %}" alt=""></div>
                                 </div>
-                                <input type="file" accept=" .jpg, .jpeg, .png" class="avt-url-change-btn">
+                                <input type="file" accept=" .jpg, .jpeg, .png" class="avt-url-change-btn" name="{{ form.avatar.name }}" value="{{ form.avatar.value.url }}">
                             </div>
                         </div>
-
                     </div>
-                      
+                </form>
                 </div>
             </div>
             
