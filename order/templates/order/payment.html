@@ -13,21 +13,25 @@
             <!-- title bar box -->
             
             <div class="container">
-                <div class="addr-title">Delivery address</div>
                 <div class="bg-addr">
-                    <div class="line-through" style="width: 100%;height: 3px; background-color: #fff;"></div>
-                    <div class="addr-detail">Hong Vinh Dat (+84) 384173970</div>
-                    <div class="addr-detail-addr">27/1/9 Đường số 9 , Phường 16 , Quận Gò Vấp ,TP.Hồ Chí Minh</div>
-                    <div class="addr-default">Default</div>
-                    <div class="addr-change">change</div>
+                    <div class="line-through" style="width: 100%;height: 3px; background-color: #fff;background-position-x: -30px;"></div>
+                    <div class="addr-content-payment">
+                        <div class="addr-title"><i class="bx bxs-map"></i> Delivery address</div>
+                        <div class="addr-content-i4" style="display: flex;">
+                            <div class="addr-detail" style="text-transform: uppercase;">Hong Vinh Dat (+84) 384173970</div>
+                            <div class="addr-detail-addr" style="font-size: 16px;">27/1/9 Đường số 9 , Phường 16 , Quận Gò Vấp, Phường 16 ,TP.Hồ Chí Minh</div>
+                            <div class="addr-default">Default</div>
+                            <div class="addr-change"style="text-transform: uppercase;"> <a href="#">Change</a></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="box-order">
                     <div class="box-order-product-name">Sản phẩm</div>
-                    <div class="box-order-product-categories">Thể loại</div>
-                    <div class="box-order-price">Giá</div>
-                    <div class="box-order-quantity">Số lượng</div>
-                    <div class="box-order-total">Thành tiền</div>
+                    <div class="box-order-product-categories w-auto">Thể loại</div>
+                    <div class="box-order-price w-auto">Giá</div>
+                    <div class="box-order-quantity w-auto">Số lượng</div>
+                    <div class="box-order-total w-auto">Thành tiền</div>
                 </div>
             </div>
             <!-- end title bar box -->
@@ -36,13 +40,13 @@
             <!-- begin detail shopping cart -->
             
             <div class="container">
-                <div class="inline-box">
-                    <div class="inline-favorite-brand">Mall</div>
-                    <div class="inline-shop-name">LDStore</div>
-                    <div class="inline-mess">Chat Now</div>
-                </div>
-                {% for item in carts %}
                 <div class="shopping-cart-detail-box">
+                    <div class="inline-box">
+                        <div class="inline-favorite-brand">Mall</div>
+                        <div class="inline-shop-name">LDStore</div>
+                        <div class="inline-mess">Chat Now</div>
+                    </div>
+                    {% for item in carts %}
                     <div class="product-shopping-cart-card">
                         <div class="wrap-checkbox-img">
                             <div class="product-cart-img" style="background-image: url({{item.product.image.url}});">
@@ -56,15 +60,19 @@
                         </div>
                         <div class="product-cart-quantity">
                             <div class="product-quantity-wrapper">
-    
-                                {{ item.quantity }}
-                             
+                                <span class="product-quantity-btn-minus">
+                                    <i class="bx bx-minus"></i>
+                                </span>
+                                <input type="text" value="{{ item.quantity }}" class="product-quantity"></input>
+                                <span class="product-quantity-btn-plus">
+                                    <i class="bx bx-plus"></i>
+                                </span>
                             </div>
                         </div>
                         <div class="product-cart-total">{{ item.get_total_price }}Đ</div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
             <!-- end detail shopping cart -->
             <div class="container">
@@ -96,17 +104,47 @@
             </div>
             <div class="container">
                 <div class="note-shipping-order-total">
-                    <div class="order-total-text">order total(1 item):</div>
-                    <div class="order-total-price">76.000Đ</div>
+                    <div class="order-total-text">order total({% if carts %}{{ carts|length }}{% else %}0{% endif %} items):</div>
+                    <div class="order-total-price">{{ cart_price_total }}Đ</div>
                 </div>
             </div>
             <div class="container">
                 <div class="payment-method">
                     <div class="payment-method-title">payment method</div>
                     <button class="payment-method-button1">Credit Cards</button>
-                    <button class="payment-method-button-2">Cash on delivery</button>
+                    <button class="payment-method-button-2" data-modal-target="#modal">Cash on delivery</button>
                 </div>
- 
+                <div class="wrap-payment-detail-content">
+                    <div class="line1-payment" style="display: flex;">
+                        <div class="l1-dt">
+                            Thanh toán khi nhận hàng
+                        </div>
+                        <div class="l1-dt-1">
+                            Phí thu hộ: ₫0 VNĐ. Ưu đãi về phí vận chuyển (nếu có) áp dụng cả với phí thu hộ.
+                        </div>
+                    </div>
+                    <div class="line2-payment">
+                        <div class="l2-dt-1" style="display: flex;">Tổng tiền hàng
+                            <div class="l2-dt-1-1">₫{{ cart_price_total }}</div>
+                        </div>
+                        <div class="l2-dt-2"style="display: flex;">Phí vận chuyển
+    
+                            <div class="l2-dt-2-1">₫21.000</div>
+                        </div>
+                        <div class="l2-dt-3"style="display: flex;">Tổng thanh toán:
+    
+                            <div class="l2-dt-3-1">₫{{ cart_price_total }}</div>
+                        </div>
+                    </div>
+                    <div class="line3-payment" style="display: flex;">
+                        <div class="line3-content-1">Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo Điều khoản LDstore</div>
+                        <div class="wrap-buy-btn-payment">
+                            <div class="buy-btn-cart "style="width:170px"><a href='{% url "order:checkout" %}'>Đặt Hàng</a></div>
+                        </div>
+                    </div>
+
+                </div>
+                
             </div>
         </div>
         

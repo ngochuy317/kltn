@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import View
 from product.models import Product
 
@@ -31,12 +31,40 @@ class PaymentView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         carts = Cart.objects.filter(
             user=request.user)
+        cart_price_total = sum([i.get_total_price for i in carts])
         
         context = {
             "carts": carts,
+            "cart_price_total": cart_price_total,
         }
             
         return render(request, self.template_name, context)
+
+class CheckOutView(LoginRequiredMixin, View):
+    
+    def get(self, request, *args, **kwargs):
+        carts = Cart.objects.filter(
+            user=request.user)
+
+        total_price = 0
+        order = Order.objects.create(
+            user=request.user
+        )
+        for item in carts:
+            total_price += item.get_total_price
+            OrderDetail.objects.create(
+                product=item.product,
+                price=item.product.price,
+                quantity=item.quantity,
+                order=order
+            )
+            item.delete()
+
+        order.total_order = total_price
+        order.save()
+            
+        return redirect('home:index')
+
 
 class AddToCart(LoginRequiredMixin, View):
     template_name = "order/shopping-cart.html"
